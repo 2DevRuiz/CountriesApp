@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         <div v-for="(country, index) in countries" :key="index" >
            <CountryItem :country="country"/>
            <!-- {{country.name.official}} -->

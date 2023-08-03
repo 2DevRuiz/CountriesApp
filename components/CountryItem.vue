@@ -20,12 +20,12 @@
         </span>
     </p> -->
     <div class="bg-white rounded-lg shadow-lg">
-        <div class=" container mx-auto h-64 flex justify-center">
+        <div class="h-60 flex justify-center">
             <img :src="country.flags.png"
-            alt="country.flags.alt" class="rounded-t-lg object-contain object-center-bottom">
+            alt="country.flags.alt" class="rounded-t-lg object-cover w-full object-center-bottom">
         </div>
-        <div class="p-6">
-            <h2 class="font-bold mb-2 text-2xl text-purple-800 whitespace-pre-line">{{country.name.official}}
+        <div class="p-3">
+            <h2 class="font-bold mb-2 text-xl text-gray-800 whitespace-pre-line">{{country.name.official}}
             </h2>
             <p class="text-purple-700 mb-2">This is a little bit better of a card!</p>
             <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Read More 👉</a>
