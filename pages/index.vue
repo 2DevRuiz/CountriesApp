@@ -91,7 +91,7 @@ onMounted(async () => {
     totalItems.value = countries.value.length
     totalPages.value = Math.ceil(totalItems.value / itemsPerPage.value)
 
-    // console.log()
+    console.log(filteredCountries.value)
 })
 watch([countries, page, filteredCountries], () => {
     totalItems.value = filteredCountries.value.length <= 0 && search.value === "" ? countries.value.length : filteredCountries.value.length
@@ -120,8 +120,14 @@ const changePage = (newPage: number) => {
 }
 const orderAlf = () => {
     console.log(
-        filteredCountries.value.length
+        filteredCountries.value
     )
-    filteredCountries.value = filteredCountries.value.length <= 0 ?countries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official)) : filteredCountries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
+    // filteredCountries.value = filteredCountries.value.length <= 0 ?countries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official)) : filteredCountries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
+    
+    filteredCountries.value = countries.value.filter((country) => country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase())).sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
+    console.log(
+        filteredCountries.value
+    )
 }
+
 </script>
