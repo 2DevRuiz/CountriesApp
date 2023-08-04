@@ -2,11 +2,21 @@
     <div class="absolute min-h-screen w-full bg-gradient-to-r from-slate-400 via-zinc-300 to-neutral-400 mb-4 p-5">
 
         <PageHeader />
-        <div class="container mx-auto">
-            <div class="mb-8">
-                <input type="text" class="border border-gray-300 rounded w-full p-1 px-4"
-                    placeholder="Search by Country name" name="" id="" @input="filterCountry()" v-model="search">
+        <div class="container mx-auto w-full px-6 mb-3">
+            <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 gap-3 ">
+                <div class="mb-8 col-start-1 ">
+                    <input type="text" class="border border-gray-300 rounded-full p-1 px-4 w-full h-12"
+                        placeholder="Search by Country name" name="" id="" @input="filterCountry()" v-model="search">
+                </div>
+                <div class="mb-8 ">
+                    <input type="text" class="border border-gray-300 rounded-full p-1 px-4 w-full h-12"
+                        placeholder="Search by Region name" name="" id="" @input="filterRegion()" v-model="searchRegion">
+                </div>
+                <div class="mb-8 flex justify-center col-span-2">
+                    <button class=" rounded-full bg-sky-400 text-white text-2xl p-3" @click="orderAlf()">Ordernar asc ^ </button>
+                </div>
             </div>
+
         </div>
         <div class="container mx-auto w-full px-6 ">
 
@@ -36,7 +46,7 @@
                 </button>
                 <div class="m-4 ">
                     <h3 class="text-4xl">
-                    {{ page }} <span class=" font-bold">/</span> {{ totalPages }}</h3>
+                        {{ page }} <span class=" font-bold">/</span> {{ totalPages }}</h3>
                 </div>
                 <button type="button" :disabled="page >= totalItems / itemsPerPage"
                     :class="{ 'opacity-50': page >= totalItems / itemsPerPage }" @click="changePage(page + 1)"
@@ -55,7 +65,7 @@
         </div>
     </div>
 
-   
+
     <!-- <div v-for="(country, index) in countries" :key="index">
         {{ country.name.official }}
     </div> -->
@@ -66,6 +76,7 @@ import ICountry from 'interface/ICountry';
 import CountriesService from '~/utils/data';
 
 const search = ref("")
+const searchRegion = ref("")
 const filteredCountries = ref<ICountry[]>([])
 const cService = new CountriesService();
 const countries = cService.getCountries()
@@ -88,10 +99,13 @@ watch([countries, page, filteredCountries], () => {
     pagination(filteredCountries.value.length <= 0 && search.value === "" ? countries.value : filteredCountries.value)
 })
 
-
 const filterCountry = () => {
-
-    filteredCountries.value = countries.value.filter((country) => country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()))
+    // filteredCountries.value = countries.value.filter((country) => country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()))
+    filteredCountries.value = countries.value.filter((country) => country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()) && country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()))
+    page.value = 1
+}
+const filterRegion = () => {
+    filteredCountries.value = countries.value.filter((country) => country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()))
     page.value = 1
 }
 
@@ -103,5 +117,11 @@ const pagination = (currentCountries: ICountry[]) => {
 
 const changePage = (newPage: number) => {
     page.value = newPage
+}
+const orderAlf = () => {
+    console.log(
+        filteredCountries.value.length
+    )
+    filteredCountries.value = filteredCountries.value.length <= 0 ?countries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official)) : filteredCountries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
 }
 </script>
