@@ -133,4 +133,7 @@ const orderAlf = () => {
 </script>
 
 
-<!-- review this template https://demo.templatemonster.com/demo/187467.html -->
+<!-- review this template https://demo.templatemonster.com/demo/187467.html 
+https://freefrontend.com/css-border-animations/ /// para los bordes de los cards 
+
+-->

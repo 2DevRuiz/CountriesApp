@@ -19,7 +19,7 @@
             {{ country.region.toLocaleString() }}
         </span>
     </p> -->
-    <div class="bg-white rounded-lg shadow-lg">
+    <!-- <div class="bg-white rounded-lg shadow-lg">
         <div class="h-60 flex justify-center">
             <img :src="country.flags.png" alt="country.flags.alt"
                 class="rounded-t-lg object-contain w-full object-center-bottom">
@@ -47,7 +47,6 @@
                             {{ country.region.toLocaleString() }}
                         </span>
                     </p>
-                    <!-- <p class="text-purple-700 mb-2">This is a little bit better of a card!</p> -->
                 </div>
                 <div class="m-1">
                     <p class="">
@@ -60,9 +59,26 @@
                     </p>
                 </div>
             </div>
-            <!-- <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Read More 👉</a> -->
         </div>
 
+    </div> -->
+    
+    <div
+        class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-5 transform hover:scale-105 duration-500 ease-in-out">
+        <div class="md:flex">
+            <div class="md:flex-shrink-0">
+                <!-- <img class="h-48 w-full object-cover md:w-48" src="https://picsum.photos/seed/pic/400/500"
+                    alt="Man looking at item at a store"> -->
+                <img class="h-48 w-full object-fill md:w-48" :src="country.flags.png" alt="country.flags.alt">
+            </div>
+            <div class="p-8">
+                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{{country.name.official}}</div>
+                <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding
+                    customers for your new business</a>
+                <p class="mt-2 text-gray-500">Getting a new business off the ground is a lot of hard work. Here are
+                    five ideas you can use to find your first customers.</p>
+            </div>
+        </div>
     </div>
 </template>
 
