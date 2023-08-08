@@ -134,9 +134,12 @@ const orderAlf = () => {
 https://freefrontend.com/css-border-animations/ /// para los bordes de los cards 
 https://www.kindacode.com/article/tailwind-css-how-to-create-an-off-canvas-side-menu/ // side bar 
 https://www.kindacode.com/snippet/tailwind-css-create-a-floating-action-button-fab/
-
+https://tailwindflex.com/samuel33/hover-effect-card
 https://freefrontend.com/css-floating-action-buttons/
 
 
+practicar en casa tratar de realizarlo 
+https://codepen.io/Huhtamaki/pen/GPzwPY
+https://freefrontend.com/css-border-animations/
 
 -->

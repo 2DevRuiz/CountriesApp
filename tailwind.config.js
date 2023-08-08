@@ -11,6 +11,16 @@ module.exports = {
     extend: {
       objectPosition: {
         'center-bottom': '50% 100%',
+      },
+      keyframes:{
+        fullSpin:{
+          '100%':{
+            transform:'rotate(-360deg)'
+          }
+        }
+      },
+      animation:{
+        fullSpin:'fullSpin 3s linear infinite'
       }
     },
   },

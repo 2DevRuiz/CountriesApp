@@ -3,7 +3,18 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-      font-family: Montserrat, sans-serif;
-    }
+  html {
+    font-family: Montserrat, sans-serif;
   }
+}
+
+
+@layer utilities {
+  .box::before {
+    @apply content-[''] absolute bg-[conic-gradient(#04b0ee_20deg,transparent_120deg)] w-[300px] h-[300px] top-[-25%] left-[-25%] animate-fullSpin
+
+  }
+  .box::after{
+    @apply content-[''] text-white w-[94%] h-[94%] bg-[#020223] absolute top-[3%] left-[3%] flex justify-center items-center uppercase tracking-[2px] font-medium
+  }
+}
