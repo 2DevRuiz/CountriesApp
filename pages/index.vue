@@ -125,9 +125,6 @@ const orderAlf = () => {
     // filteredCountries.value = filteredCountries.value.length <= 0 ?countries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official)) : filteredCountries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
     
     filteredCountries.value = countries.value.filter((country) => country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase())).sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
-    console.log(
-        filteredCountries.value
-    )
 }
 
 </script>
