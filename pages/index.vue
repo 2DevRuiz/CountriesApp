@@ -128,3 +128,15 @@ const orderAlf = () => {
 }
 
 </script>
+
+
+<!-- review this template https://demo.templatemonster.com/demo/187467.html 
+https://freefrontend.com/css-border-animations/ /// para los bordes de los cards 
+https://www.kindacode.com/article/tailwind-css-how-to-create-an-off-canvas-side-menu/ // side bar 
+https://www.kindacode.com/snippet/tailwind-css-create-a-floating-action-button-fab/
+
+https://freefrontend.com/css-floating-action-buttons/
+
+
+
+-->
