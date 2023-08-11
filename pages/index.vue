@@ -143,5 +143,6 @@ https://codepen.io/Huhtamaki/pen/GPzwPY
 https://freefrontend.com/css-border-animations/
 Intentar Hacer el portfolio de este video 
 https://www.youtube.com/watch?v=a4TvEXvehZU&list=PLM-Y_YQmMEqAgXElCchpcLAun7RX8Ozin&index=2
-
+// video de front end 
+https://www.youtube.com/watch?v=LAlceG2cY_w&list=PLM-Y_YQmMEqDcV8cJcosRsqJJNrhlpwzb
 -->
