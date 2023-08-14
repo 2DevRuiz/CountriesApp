@@ -147,4 +147,15 @@ https://www.youtube.com/watch?v=a4TvEXvehZU&list=PLM-Y_YQmMEqAgXElCchpcLAun7RX8O
 https://www.youtube.com/watch?v=LAlceG2cY_w&list=PLM-Y_YQmMEqDcV8cJcosRsqJJNrhlpwzb
 
 https://www.youtube.com/watch?v=TfKDkErJUtk
+
+https://www.youtube.com/watch?v=_cM4j9_LfQk
+
+https://themeselection.com/nuxt-js-example-project/
+
+
+/******
+*COMO NOTA 
+*ESTE SI HACELO SE VE INTERESANTE :)
+https://vuejsexamples.com/free-comics-website-using-nuxt-and-tailwind/
+*/
 -->
