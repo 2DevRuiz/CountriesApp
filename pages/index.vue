@@ -151,7 +151,8 @@ https://www.youtube.com/watch?v=TfKDkErJUtk
 https://www.youtube.com/watch?v=_cM4j9_LfQk
 
 https://themeselection.com/nuxt-js-example-project/
-
+https://codepen.io/bluepenguin-666/pen/jOaaQZp
+https://codepen.io/GoostCreative/pen/jOawZbZ
 
 /******
 *COMO NOTA 
