@@ -1,7 +1,7 @@
 <template>
-    <div class="absolute min-h-screen w-full bg-gradient-to-r from-slate-400 via-zinc-300 to-neutral-400 mb-4 p-5">
+    <div class="absolute min-h-screen w-full bg-gradient-to-br from-green-400 to-indigo-600 mb-4 p-5">
 
-        <PageHeader :title="`Countries List`" :sub-title="'Most Usefull app'"/>
+        <PageHeader :title="'List Users'" />
         <div class="container mx-auto w-full px-6 mb-3">
             <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 gap-3 ">
                 <div class="mb-8 col-start-1 ">
@@ -27,8 +27,8 @@
                     :class="{ 'opacity-50': page >= totalItems / itemsPerPage }" @click="changePage(page + 1)"
                     class=" border border-gray-300 rounded px-2 py-0.5 hover:bg-gray-200">Next</button>
             </div> -->
-            <!-- <CountryList :countries="filteredCountries.length > 0 ? filteredCountries : countries" /> -->
-            <CountryList :countries="paginateCountries" />
+            <!-- <CountryList :user="filteredCountries.length > 0 ? filteredCountries : user" /> -->
+            <UserList :users="paginateCountries" />
         </div>
         <div class="container mx-auto mt-9 mb-7 ">
             <div class="flex flex-row justify-center mx-auto">
@@ -70,46 +70,46 @@
         {{ country.name.official }}
     </div> -->
 </template>
-
 <script lang="ts" setup>
 import ICountry from 'interface/ICountry';
-import CountriesService from '~/utils/data';
+import IUser from 'interface/IUser';
+import UserService from '~/utils/useUsers';
 
 const search = ref("")
 const searchRegion = ref("")
-const filteredCountries = ref<ICountry[]>([])
-const cService = new CountriesService();
-const countries = cService.getCountries()
+const filteredCountries = ref<IUser[]>([])
+const cService = new UserService();
+const users = cService.getUsers()
 
 const page = ref(1)
 const itemsPerPage = ref(12)
-const paginateCountries = ref<ICountry[]>([])
+const paginateCountries = ref<IUser[]>([])
 const totalItems = ref(0)
 const totalPages = ref(0)
 onMounted(async () => {
-    await cService.fetchAll('/all')
-    totalItems.value = countries.value.length
+    await cService.fetchAll()
+    totalItems.value = users.value.length
     totalPages.value = Math.ceil(totalItems.value / itemsPerPage.value)
 
-    console.log(filteredCountries.value)
+    console.log(users.value)
 })
-watch([countries, page, filteredCountries], () => {
-    totalItems.value = filteredCountries.value.length <= 0 && search.value === "" ? countries.value.length : filteredCountries.value.length
+watch([users, page, filteredCountries], () => {
+    totalItems.value = filteredCountries.value.length <= 0 && search.value === "" ? users.value.length : filteredCountries.value.length
     totalPages.value = Math.ceil(totalItems.value / itemsPerPage.value)
-    pagination(filteredCountries.value.length <= 0 && search.value === "" ? countries.value : filteredCountries.value)
+    pagination(filteredCountries.value.length <= 0 && search.value === "" ? users.value : filteredCountries.value)
 })
 
 const filterCountry = () => {
-    // filteredCountries.value = countries.value.filter((country) => country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()))
-    filteredCountries.value = countries.value.filter((country) => country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()) && country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()))
+    // filteredCountries.value = user.value.filter((country) => country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()))
+    filteredCountries.value = users.value.filter((user) => user.firstName.toLowerCase().includes(search.value.toLocaleLowerCase()) && user.maidenName.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()))
     page.value = 1
 }
 const filterRegion = () => {
-    filteredCountries.value = countries.value.filter((country) => country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase()))
+    filteredCountries.value = users.value.filter((user) => user.firstName.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && user.firstName.toLowerCase().includes(search.value.toLocaleLowerCase()))
     page.value = 1
 }
 
-const pagination = (currentCountries: ICountry[]) => {
+const pagination = (currentCountries: IUser[]) => {
     const start = (page.value - 1) * itemsPerPage.value
     const end = page.value * itemsPerPage.value
     paginateCountries.value = currentCountries.slice(start, end)
@@ -122,41 +122,9 @@ const orderAlf = () => {
     console.log(
         filteredCountries.value
     )
-    // filteredCountries.value = filteredCountries.value.length <= 0 ?countries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official)) : filteredCountries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
+    // filteredCountries.value = filteredCountries.value.length <= 0 ?user.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official)) : filteredCountries.value.sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
     
-    filteredCountries.value = countries.value.filter((country) => country.region.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && country.name.official.toLowerCase().includes(search.value.toLocaleLowerCase())).sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
+    filteredCountries.value = users.value.filter((user) => user.maidenName.toLowerCase().includes(searchRegion.value.toLocaleLowerCase()) && user.firstName.toLowerCase().includes(search.value.toLocaleLowerCase())).sort((a:any,b:any) => a.name.official.localeCompare(b.name.official))
 }
 
 </script>
-
-
-<!-- review this template https://demo.templatemonster.com/demo/187467.html 
-https://freefrontend.com/css-border-animations/ /// para los bordes de los cards 
-https://www.kindacode.com/article/tailwind-css-how-to-create-an-off-canvas-side-menu/ // side bar 
-https://www.kindacode.com/snippet/tailwind-css-create-a-floating-action-button-fab/
-https://tailwindflex.com/samuel33/hover-effect-card
-https://freefrontend.com/css-floating-action-buttons/
-
-
-practicar en casa tratar de realizarlo 
-https://codepen.io/Huhtamaki/pen/GPzwPY
-https://freefrontend.com/css-border-animations/
-Intentar Hacer el portfolio de este video 
-https://www.youtube.com/watch?v=a4TvEXvehZU&list=PLM-Y_YQmMEqAgXElCchpcLAun7RX8Ozin&index=2
-// video de front end 
-https://www.youtube.com/watch?v=LAlceG2cY_w&list=PLM-Y_YQmMEqDcV8cJcosRsqJJNrhlpwzb
-
-https://www.youtube.com/watch?v=TfKDkErJUtk
-
-https://www.youtube.com/watch?v=_cM4j9_LfQk
-
-https://themeselection.com/nuxt-js-example-project/
-https://codepen.io/bluepenguin-666/pen/jOaaQZp
-https://codepen.io/GoostCreative/pen/jOawZbZ
-
-/******
-*COMO NOTA 
-*ESTE SI HACELO SE VE INTERESANTE :)
-https://vuejsexamples.com/free-comics-website-using-nuxt-and-tailwind/
-*/
--->
