@@ -15,6 +15,6 @@
 
   }
   .box::after{
-    @apply content-[''] text-white w-[94%] h-[94%] bg-[#020223] absolute top-[3%] left-[3%] flex justify-center items-center uppercase tracking-[2px] font-medium
+    @apply content-['Tailwind'] text-white w-[94%] h-[94%] bg-[#020223] absolute top-[3%] left-[3%] flex justify-center items-center uppercase tracking-[2px] font-medium
   }
 }

@@ -12,16 +12,21 @@ module.exports = {
       objectPosition: {
         'center-bottom': '50% 100%',
       },
-      keyframes:{
-        fullSpin:{
-          '100%':{
-            transform:'rotate(-360deg)'
+      animation: {
+        fullSpin: 'fullSpin2 3s linear infinite',
+        fullBorder:'backGround 6s ease infinite'
+      },
+      keyframes: {
+        fullSpin2: {
+          '100%': {
+            transform: 'rotate(-360deg)'
           }
+        },
+        backGround: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         }
       },
-      animation:{
-        fullSpin:'fullSpin 3s linear infinite'
-      }
     },
   },
   plugins: [],
