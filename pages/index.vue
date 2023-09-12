@@ -155,8 +155,7 @@ https://codepen.io/bluepenguin-666/pen/jOaaQZp
 https://codepen.io/GoostCreative/pen/jOawZbZ
 
 /******
-*COMO NOTA 
-*ESTE SI HACELO SE VE INTERESANTE :)
-https://vuejsexamples.com/free-comics-website-using-nuxt-and-tailwind/
+*2FA with VUE just some minor but functional changes
+*https://jahid.dev/blog/reusable-otp-input-field-with-vue-3-and-tailwind
 */
 -->
