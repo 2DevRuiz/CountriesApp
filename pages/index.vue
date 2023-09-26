@@ -158,4 +158,6 @@ https://codepen.io/GoostCreative/pen/jOawZbZ
 *2FA with VUE just some minor but functional changes
 *https://jahid.dev/blog/reusable-otp-input-field-with-vue-3-and-tailwind
 */
+
+https://www.youtube.com/watch?v=0ZwaOAlRAWA
 -->
